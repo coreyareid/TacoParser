@@ -41,7 +41,7 @@ namespace LoggingKata
             // stores distance
             double distance = 0;
 
-            // stors lat and lon locations into one variable and asigns stored values into Taco Bell classes.
+            // stores lat and lon locations into one variable and asigns stored values into Taco Bell classes 1 and 2.
             for (int i = 0; i < locations.Length; i++)
             {
                 var locA = locations[i];
@@ -55,6 +55,7 @@ namespace LoggingKata
                     var corB = new GeoCoordinate();
                     corB.Latitude = locB.Location.Latitude;
                     corB.Longitude = locB.Location.Latitude;
+
                     // Calculates to see which two Taco Bells are farthest apart
                     if (corA.GetDistanceTo(corB) > distance)
                     {

@@ -26,16 +26,15 @@
             var name = cells[2];
 
             // stores longitude and latitude into one object
-            var point = new Point
+            var point = new Point()
             {
                 Latitude = lat,
                 Longitude = lon
             };
 
             // Instance of Taco Bell that adds name and location
-            var tacoBell = new TacoBell();
-            tacoBell.Name = name;
-            tacoBell.Location = point;
+            var tacoBell = new TacoBell(name, point);
+            
             return tacoBell;
         }
     }
