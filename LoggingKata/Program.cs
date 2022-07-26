@@ -35,12 +35,11 @@ namespace LoggingKata
             var locations = lines.Select(line => parser.Parse(line)).ToArray();
 
             // instantiates classess of Taco Bells farthest apart
-            ITrackable tacoBellOne = new TacoBell();
-            ITrackable tacoBellTwo = new TacoBell();
+            ITrackable tacoBellOne = null;
+            ITrackable tacoBellTwo = null;
 
             // stores distance
             double distance = 0;
-
             // stores lat and lon locations into one variable and asigns stored values into Taco Bell classes 1 and 2.
             for (int i = 0; i < locations.Length; i++)
             {
@@ -65,8 +64,10 @@ namespace LoggingKata
                     }
                 }
             }
+            double kilometers = Convert.ToDouble(distance / 1000);
+            int miles = Convert.ToInt32(kilometers / 1.6);
             // Reads to the console the Taco Bells farthest from each other
-            logger.LogInfo($"{tacoBellOne.Name} is farthest from {tacoBellTwo.Name}.");
+            logger.LogInfo($"{tacoBellOne.Name} is {miles} miles from {tacoBellTwo.Name}.");
         }
     }
 }
