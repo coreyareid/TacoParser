@@ -46,14 +46,14 @@ namespace LoggingKata
                 var locA = locations[i];
                 var corA = new GeoCoordinate();
                 corA.Latitude = locA.Location.Latitude;
-                corA.Longitude = locA.Location.Latitude;
+                corA.Longitude = locA.Location.Longitude;
 
                 for (int j = 0; j < locations.Length; j++)
                 {
                     var locB = locations[j];
                     var corB = new GeoCoordinate();
                     corB.Latitude = locB.Location.Latitude;
-                    corB.Longitude = locB.Location.Latitude;
+                    corB.Longitude = locB.Location.Longitude;
 
                     // Calculates to see which two Taco Bells are farthest apart
                     if (corA.GetDistanceTo(corB) > distance)
@@ -64,8 +64,7 @@ namespace LoggingKata
                     }
                 }
             }
-            double kilometers = Convert.ToDouble(distance / 1000);
-            int miles = Convert.ToInt32(kilometers / 1.6);
+            int miles = Convert.ToInt32(distance / 1609.344);
             // Reads to the console the Taco Bells farthest from each other
             logger.LogInfo($"{tacoBellOne.Name} is {miles} miles from {tacoBellTwo.Name}.");
         }
